@@ -90,4 +90,17 @@ class LoginController extends Controller
         // If authentication fails, redirect back with errors
         return back()->withInput($request->only('email', 'remember'))->with('error', 'Invalid credentials');
     }
+
+    public function logout()
+    {
+        if (Auth::check()) {
+            $user = Auth::user();
+            $user->tokens()->delete();
+            Auth::logout();
+
+            return redirect()->route('login-form')->with('success', 'You have been logged out!');
+        } else {
+            return redirect()->route('login-form')->with('success', 'You are already logged out!');
+        }
+  }
 }

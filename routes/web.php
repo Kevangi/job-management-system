@@ -18,6 +18,7 @@ Route::get('/forgot-password-form', [ForgotPasswordController::class, 'form'])->
 Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgot-password');
 Route::get('/reset-password-form/{token}', [ResetPasswordController::class, 'form'])->name('reset-password-form');
 Route::post('/reset-password/{token}', [ResetPasswordController::class, 'resetPassword'])->name('reset-password');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/admin/dashboard', function(){
     return view('admin.dashboard');
