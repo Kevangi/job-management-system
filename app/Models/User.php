@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Company;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -67,5 +68,9 @@ class User extends Authenticatable
                 $module->updated_by = $user->id;
             }
         });
+    }
+
+    public function companies(){
+        return $this->hasMany(Company::class);
     }
 }

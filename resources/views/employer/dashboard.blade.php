@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Employer - dashboard</title>
-</head>
-<body>
-    Employer - Dashboard
-</body>
-</html>
+@extends('layout.app')
+
+@section('title', 'Dashboard')
+
+@section('content')
+    <h1>Employer - Dashboard</h1>
+@endsection

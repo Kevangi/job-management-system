@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Database\Seeders\SkillTableSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -38,5 +39,7 @@ class DatabaseSeeder extends Seeder
         }
 
         User::whereNotIn('email', array_column($users, 'email'))->delete();
+    
+        $this->call(SkillTableSeeder::class);
     }
 }
